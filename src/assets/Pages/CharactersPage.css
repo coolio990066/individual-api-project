@@ -1,0 +1,79 @@
+/* Characters Page Styles */
+.characters-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding-top: 80px;
+}
+
+.characters-header {
+  text-align: center;
+  padding: 40px 20px;
+  color: white;
+}
+
+.characters-header h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  color: #ffcc02;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  font-family: 'Arial Black', sans-serif;
+}
+
+.characters-header p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.character-count {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(247, 147, 30, 0.3);
+  margin-bottom: 20px;
+}
+
+/* Characters Actions */
+.characters-actions {
+  margin-top: 25px;
+}
+
+.go-back-button {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(247, 147, 30, 0.3);
+}
+
+.go-back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  background: linear-gradient(135deg, #f7931e, #ffcc02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .characters-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .characters-header p {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+}

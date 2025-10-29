@@ -1,0 +1,295 @@
+/* Dragon Ball Loading Animation */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.loading-container {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Character Loading Animation */
+.character-loading {
+  position: relative;
+  z-index: 2;
+}
+
+.character-image-loading {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-character-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 4px solid #ffcc02;
+  background: rgba(255, 204, 2, 0.1);
+  animation: characterFloat 2s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(255, 204, 2, 0.5);
+}
+
+/* Energy Aura Animation */
+.energy-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 204, 2, 0.3) 0%, rgba(255, 107, 53, 0.2) 50%, transparent 70%);
+  animation: energyPulse 1.5s ease-in-out infinite;
+}
+
+/* Energy Rings */
+.energy-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.ring {
+  position: absolute;
+  border: 2px solid #ffcc02;
+  border-radius: 50%;
+  opacity: 0;
+  animation: ringExpand 2s linear infinite;
+}
+
+.ring-1 {
+  width: 160px;
+  height: 160px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0s;
+}
+
+.ring-2 {
+  width: 160px;
+  height: 160px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 0.7s;
+}
+
+.ring-3 {
+  width: 160px;
+  height: 160px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 1.4s;
+}
+
+/* Character Name */
+.loading-character-name {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffcc02;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  font-family: 'Arial Black', sans-serif;
+  margin-bottom: 20px;
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+/* Power Up Animation */
+.power-up-animation {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 30px;
+}
+
+.power-line {
+  width: 4px;
+  height: 40px;
+  background: linear-gradient(to top, #ff6b35, #ffcc02);
+  border-radius: 2px;
+  animation: powerUp 1s ease-in-out infinite;
+}
+
+.power-line:nth-child(1) { animation-delay: 0s; }
+.power-line:nth-child(2) { animation-delay: 0.1s; }
+.power-line:nth-child(3) { animation-delay: 0.2s; }
+.power-line:nth-child(4) { animation-delay: 0.3s; }
+.power-line:nth-child(5) { animation-delay: 0.4s; }
+
+/* Loading Text */
+.loading-text {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.loading-dots span {
+  animation: dotBounce 1.5s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: 0s; }
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* Dragon Balls Background Animation */
+.dragon-balls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dragon-ball {
+  position: absolute;
+  font-size: 2rem;
+  color: #ffcc02;
+  animation: floatAround 8s linear infinite;
+  opacity: 0.3;
+}
+
+.ball-1 { top: 10%; left: 10%; animation-delay: 0s; }
+.ball-2 { top: 20%; right: 15%; animation-delay: 1s; }
+.ball-3 { top: 60%; left: 5%; animation-delay: 2s; }
+.ball-4 { bottom: 20%; right: 10%; animation-delay: 3s; }
+.ball-5 { top: 80%; left: 50%; animation-delay: 4s; }
+.ball-6 { top: 30%; left: 80%; animation-delay: 5s; }
+.ball-7 { bottom: 40%; left: 20%; animation-delay: 6s; }
+
+/* Animations */
+@keyframes characterFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes energyPulse {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+@keyframes ringExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% { 
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 204, 2, 0.5);
+  }
+  50% { 
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 204, 2, 0.8);
+  }
+}
+
+@keyframes powerUp {
+  0%, 100% { 
+    transform: scaleY(1);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: scaleY(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes dotBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-10px); }
+}
+
+@keyframes floatAround {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-20px) rotate(90deg); }
+  50% { transform: translateY(0px) rotate(180deg); }
+  75% { transform: translateY(-10px) rotate(270deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .character-image-loading {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .loading-character-img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .loading-character-name {
+    font-size: 2rem;
+  }
+  
+  .power-line {
+    height: 30px;
+  }
+  
+  .loading-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .character-image-loading {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .loading-character-img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .loading-character-name {
+    font-size: 1.5rem;
+  }
+  
+  .dragon-ball {
+    font-size: 1.5rem;
+  }
+}

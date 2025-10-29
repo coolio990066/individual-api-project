@@ -1,0 +1,284 @@
+/* Dragon Ball Themed Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcc02 100%);
+  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid #ff6b35;
+}
+
+.navbar__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+/* Logo Section */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar__logo:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+.navbar__logo-img {
+  height: 45px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.navbar__brand {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+  letter-spacing: -0.5px;
+}
+
+/* Desktop Navigation */
+.navbar__nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+}
+
+.navbar__item {
+  position: relative;
+}
+
+.navbar__link {
+  display: block;
+  padding: 12px 20px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Ensure React Router Links inherit the same styles */
+.navbar__link,
+.navbar__link:visited,
+.navbar__link:focus {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.navbar__link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.navbar__link--cta {
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar__link--cta:hover {
+  background: linear-gradient(135deg, #ff3742, #ff2f3a);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+  color: white !important;
+}
+
+/* Mobile Menu Toggle */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.navbar__hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.navbar__hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar__hamburger--open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.navbar__hamburger--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__hamburger--open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Menu */
+.navbar__mobile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcc02 100%);
+  box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar__mobile--open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar__mobile-menu {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navbar__mobile-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar__mobile-item:last-child {
+  border-bottom: none;
+}
+
+.navbar__mobile-link {
+  display: block;
+  padding: 15px 0;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Ensure React Router Links inherit mobile styles */
+.navbar__mobile-link,
+.navbar__mobile-link:visited,
+.navbar__mobile-link:focus {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.navbar__mobile-link:hover {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  padding-left: 10px;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar__container {
+    padding: 0 15px;
+    height: 60px;
+  }
+
+  .navbar__brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar__logo-img {
+    height: 35px;
+  }
+
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__container {
+    padding: 0 10px;
+  }
+
+  .navbar__brand {
+    font-size: 1rem;
+  }
+
+  .navbar__logo-img {
+    height: 30px;
+  }
+}
+
+/* Add some breathing room for content below navbar */
+body {
+  padding-top: 70px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+}
+
+/* Dragon Ball themed animations */
+@keyframes powerUp {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.navbar__link:active {
+  animation: powerUp 0.2s ease;
+}
+
+/* Subtle glow effect */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 204, 2, 0.1) 0%, rgba(247, 147, 30, 0.1) 50%, rgba(255, 107, 53, 0.1) 100%);
+  pointer-events: none;
+}
