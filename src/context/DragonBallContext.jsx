@@ -90,9 +90,27 @@ export const DragonBallProvider = ({ children }) => {
     );
   };
 
+  // Create URL-friendly slug from character name
+  const createSlug = (name) => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+      .trim();
+  };
+
   // Get character by ID
   const getCharacterById = (id) => {
     return characters.find(character => character.id === id);
+  };
+
+  // Get character by name slug
+  const getCharacterBySlug = (slug) => {
+    return characters.find(character => {
+      const characterSlug = createSlug(character.name);
+      return characterSlug === slug;
+    });
   };
 
   // Refresh data
@@ -120,6 +138,8 @@ export const DragonBallProvider = ({ children }) => {
 
     searchCharacters,
     getCharacterById,
+    getCharacterBySlug,
+    createSlug,
     refreshData,
 
 

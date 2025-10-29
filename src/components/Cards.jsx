@@ -13,9 +13,20 @@ const Cards = ({ limit = null, showSearch = false }) => {
     setSearchTerm(e.target.value);
   };
 
+  // Create URL-friendly slug from character name
+  const createSlug = (name) => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters except spaces and hyphens
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+      .trim();
+  };
+
   // Handle card click
-  const handleCardClick = (characterId) => {
-    navigate(`/character/${characterId}`);
+  const handleCardClick = (character) => {
+    const slug = createSlug(character.name);
+    navigate(`/character/${slug}`);
   };
 
   // Get characters to display
@@ -70,7 +81,7 @@ const Cards = ({ limit = null, showSearch = false }) => {
             <div
               key={character.id || index}
               className="character-card"
-              onClick={() => handleCardClick(character.id)}
+              onClick={() => handleCardClick(character)}
               style={{ cursor: 'pointer' }}
             >
               <div className="card-image">

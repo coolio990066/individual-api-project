@@ -4,11 +4,11 @@ import { useDragonBall } from '../context/DragonBallContext';
 import './CharacterDetail.css';
 
 const CharacterDetail = () => {
-  const { id } = useParams();
+  const { name } = useParams();
   const navigate = useNavigate();
-  const { getCharacterById, loading } = useDragonBall();
+  const { getCharacterBySlug, loading } = useDragonBall();
 
-  const character = getCharacterById(parseInt(id));
+  const character = getCharacterBySlug(name);
 
   if (loading) {
     return (

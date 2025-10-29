@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/characters" element={<CharacterPage />} />
-          <Route path="/character/:id" element={<CharacterDetail />} />
+          <Route path="/character/:name" element={<CharacterDetail />} />
         </Routes>
       </Router>
     </DragonBallProvider>
