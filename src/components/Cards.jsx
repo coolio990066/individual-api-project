@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDragonBall } from '../context/DragonBallContext';
 import './Cards.css'; // We'll create this for styling
 
-const Cards = ({ limit = null, showSearch = false }) => {
+const Cards = ({ limit = null, showSearch = false, sortOrder = 'none' }) => {
   const { characters, loading, error, searchCharacters } = useDragonBall();
   const [searchTerm, setSearchTerm] = React.useState('');
   const navigate = useNavigate();
@@ -34,10 +34,44 @@ const Cards = ({ limit = null, showSearch = false }) => {
     ? searchCharacters(searchTerm)
     : characters;
 
+  // Apply sorting
+  const sortedCharacters = React.useMemo(() => {
+    if (sortOrder === 'none') {
+      return displayCharacters;
+    }
+    
+    const sorted = [...displayCharacters].sort((a, b) => {
+      if (sortOrder === 'asc' || sortOrder === 'desc') {
+        // Sort by name
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+        
+        if (sortOrder === 'asc') {
+          return nameA.localeCompare(nameB);
+        } else {
+          return nameB.localeCompare(nameA);
+        }
+      } else if (sortOrder === 'maxKiDesc' || sortOrder === 'maxKiAsc') {
+        // Sort by Max Ki
+        const maxKiA = parseFloat(a.maxKi) || 0;
+        const maxKiB = parseFloat(b.maxKi) || 0;
+        
+        if (sortOrder === 'maxKiDesc') {
+          return maxKiB - maxKiA; 
+        } else {
+          return maxKiA - maxKiB; 
+        }
+      }
+      return 0;
+    });
+    
+    return sorted;
+  }, [displayCharacters, sortOrder]);
+
   // Limit characters if specified
   const limitedCharacters = limit
-    ? displayCharacters.slice(0, limit)
-    : displayCharacters;
+    ? sortedCharacters.slice(0, limit)
+    : sortedCharacters;
 
   if (loading) {
     return (
@@ -123,6 +157,12 @@ const Cards = ({ limit = null, showSearch = false }) => {
                 {character.race && (
                   <p className="character-race">
                     <strong>Race:</strong> {character.race}
+                  </p>
+                )}
+
+                {character.maxKi && (
+                  <p className="character-max-ki">
+                    <strong>Max Ki:</strong> {character.maxKi}
                   </p>
                 )}
 
