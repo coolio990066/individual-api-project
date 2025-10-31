@@ -105,7 +105,7 @@ export const DragonBallProvider = ({ children }) => {
     return characters.find(character => character.id === id);
   };
 
-  // Get character by name slug
+  // Get character by name name
   const getCharacterBySlug = (slug) => {
     return characters.find(character => {
       const characterSlug = createSlug(character.name);
